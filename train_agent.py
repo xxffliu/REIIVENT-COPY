@@ -41,7 +41,7 @@ def train_agent(restore_prior_from='data/Prior.ckpt',
         Prior.rnn.load_state_dict(torch.load('data/Prior.ckpt', map_location=lambda storage, loc: storage))
         Agent.rnn.load_state_dict(torch.load(restore_agent_from, map_location=lambda storage, loc: storage))
 
-    # We dont need gradients with respect to Prior
+    # We don't need gradients with respect to Prior
     for param in Prior.rnn.parameters():
         param.requires_grad = False
 
